@@ -485,12 +485,14 @@
     }
     links.forEach(function(a) {
       a.addEventListener('click', function() {
+        var id = a.getAttribute('href').slice(1);
+        setActive(id); // 클릭 즉시 해당 섹션 활성 (반응성 보장)
         if (window.innerWidth <= 1023) {
           var toc = document.getElementById('toc');
           toc.classList.remove('open');
           toc.querySelector('.toc-trigger').setAttribute('aria-expanded', 'false');
         }
-        setTimeout(update, 450); // 부드러운 스크롤 종료 후 갱신 보장
+        setTimeout(update, 600); // 스크롤 종료 후 위치 기반 재보정
       });
     });
     window.addEventListener('scroll', update, { passive: true });
