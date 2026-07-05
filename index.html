@@ -4,174 +4,485 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>개인정보처리방침 | Ullo</title>
+<meta name="description" content="Ullo 개인정보처리방침 — 수집 항목, 목적, 보유기간 및 이용자 권리를 안내합니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 <style>
   :root {
-    --text: #171717;
-    --text-sub: #525252;
-    --text-mute: #737373;
-    --line: #e5e5e5;
-    --bg: #ffffff;
-    --bg-soft: #fafafa;
-    --primary: #0064ff;
-    --tag-bg: #fff7e6;
-    --tag-text: #b45309;
+    --ink: #0B1118;
+    --ink-2: #475467;
+    --ink-3: #94A3B8;
+    --paper: #FFFFFF;
+    --canvas: #F6F8FB;
+    --brand: #0064FF;
+    --brand-soft: #EBF1FF;
+    --brand-rail: #C9DBFF;
+    --line: #E5E9F0;
+    --hl-bg: #FEF9C3;
+    --hl-ink: #854D0E;
+    --shadow: 0 1px 2px rgba(11,17,24,.04), 0 8px 24px rgba(11,17,24,.06);
+    --radius: 14px;
+    --radius-sm: 10px;
   }
+
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   body {
     margin: 0;
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    color: var(--text);
-    background: var(--bg-soft);
-    line-height: 1.7;
+    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    color: var(--ink);
+    background: var(--canvas);
+    line-height: 1.75;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  .wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    background: var(--bg);
-    padding: 56px 28px 96px;
+
+  /* ── Top bar ───────────────────────────── */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
   }
-  header { margin-bottom: 40px; border-bottom: 1px solid var(--line); padding-bottom: 24px; }
-  header h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: -0.5px; }
-  header .meta { color: var(--text-mute); font-size: 14px; }
-  h2 { font-size: 20px; margin: 48px 0 16px; letter-spacing: -0.3px; }
-  h3 { font-size: 16px; margin: 28px 0 12px; color: var(--text); }
-  p { margin: 10px 0; color: var(--text-sub); font-size: 15px; }
-  ul { margin: 10px 0; padding-left: 20px; color: var(--text-sub); font-size: 15px; }
-  li { margin: 6px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-  th, td { border: 1px solid var(--line); padding: 12px; text-align: left; vertical-align: top; }
-  th { background: var(--bg-soft); font-weight: 600; color: var(--text); }
-  td { color: var(--text-sub); }
+  .topbar-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .logo { display: flex; align-items: center; gap: 9px; font-weight: 800; letter-spacing: -.02em; font-size: 18px; }
+  .logo-dot { width: 22px; height: 22px; border-radius: 7px; background: var(--brand); display: grid; place-items: center; color: #fff; font-size: 13px; font-weight: 800; }
+  .topbar-title { font-size: 14px; color: var(--ink-2); font-weight: 500; }
+  .topbar-meta { margin-left: auto; font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+  /* ── Layout shell ──────────────────────── */
+  .shell {
+    max-width: 1180px; margin: 0 auto;
+    padding: 40px 24px 96px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* ── Hero ──────────────────────────────── */
+  .hero { grid-column: 1 / -1; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: var(--brand);
+    background: var(--brand-soft); padding: 6px 12px; border-radius: 999px;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 6vw, 54px);
+    line-height: 1.12; letter-spacing: -.03em;
+    font-weight: 800; margin: 0 0 18px;
+    max-width: 16ch;
+  }
+  .hero h1 .accent { color: var(--brand); }
+  .hero .lead { font-size: clamp(16px, 2.2vw, 19px); color: var(--ink-2); max-width: 56ch; margin: 0; }
+
+  /* ── At-a-glance summary ───────────────── */
+  .glance {
+    grid-column: 1 / -1;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .glance-head {
+    padding: 20px 26px;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .glance-head h2 { font-size: 15px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+  .glance-head span { font-size: 13px; color: var(--ink-3); }
+  .glance-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .glance-cell { padding: 22px 26px; border-right: 1px solid var(--line); }
+  .glance-cell:last-child { border-right: 0; }
+  .glance-cell .label { font-size: 12px; color: var(--ink-3); font-weight: 600; letter-spacing: .02em; margin-bottom: 8px; }
+  .glance-cell .value { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.25; }
+  .glance-cell .sub { font-size: 13px; color: var(--ink-2); margin-top: 4px; }
+
+  /* ── Body grid: TOC + content ──────────── */
+  .body-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 232px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* ── TOC ───────────────────────────────── */
+  .toc { position: sticky; top: 96px; }
+  .toc-title { font-size: 12px; font-weight: 700; color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 14px; padding-left: 16px; }
+  .toc ul { list-style: none; margin: 0; padding: 0; }
+  .toc li { position: relative; }
+  .toc a {
+    display: block; padding: 9px 16px;
+    font-size: 14px; color: var(--ink-2); font-weight: 500;
+    text-decoration: none; border-left: 2px solid transparent;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .toc a:hover { color: var(--ink); }
+  .toc a.active { color: var(--brand); border-left-color: var(--brand); background: var(--brand-soft); font-weight: 600; }
+  .toc .idx { display: inline-block; width: 22px; color: var(--ink-3); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .toc a.active .idx { color: var(--brand); }
+
+  /* mobile TOC trigger */
+  .toc-trigger {
+    display: none;
+    width: 100%; justify-content: space-between; align-items: center;
+    padding: 13px 18px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+    background: var(--paper); font-size: 14px; font-weight: 600; color: var(--ink);
+    cursor: pointer;
+  }
+  .toc-trigger .chev { transition: transform .2s; color: var(--ink-3); }
+  .toc-trigger[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+  /* ── Content ───────────────────────────── */
+  .content { min-width: 0; max-width: 680px; }
+  section { padding: 4px 0 8px; scroll-margin-top: 90px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; margin: 44px 0 14px; }
+  .sec-head:first-child { margin-top: 0; }
+  .sec-idx {
+    font-size: 13px; font-weight: 700; color: var(--brand);
+    font-variant-numeric: tabular-nums; letter-spacing: .02em;
+    flex-shrink: 0; padding-top: 2px;
+  }
+  .sec-head h2 { font-size: clamp(21px, 3vw, 25px); font-weight: 700; letter-spacing: -.02em; margin: 0; line-height: 1.3; }
+  .content p { margin: 12px 0; color: var(--ink-2); font-size: 15.5px; }
+  .content p strong, .content li strong { color: var(--ink); font-weight: 600; }
+  .content ul { margin: 14px 0; padding-left: 20px; color: var(--ink-2); font-size: 15.5px; }
+  .content li { margin: 7px 0; }
+  .content a { color: var(--brand); text-decoration: none; border-bottom: 1px solid var(--brand-rail); }
+  .content a:hover { border-bottom-color: var(--brand); }
+
+  /* callout */
+  .callout {
+    background: var(--brand-soft); border: 1px solid var(--brand-rail);
+    border-radius: var(--radius-sm); padding: 16px 18px; margin: 18px 0;
+    font-size: 14.5px; color: var(--ink-2);
+  }
+  .callout strong { color: var(--ink); }
+  .callout .kv { display: block; margin-top: 6px; }
+  .note {
+    background: var(--canvas); border-left: 3px solid var(--brand);
+    padding: 14px 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 18px 0; font-size: 14px; color: var(--ink-2);
+  }
+
+  /* table */
+  .table-wrap { overflow-x: auto; margin: 18px 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+  th, td { padding: 13px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: 0; }
+  th { background: var(--canvas); font-weight: 600; color: var(--ink); font-size: 13px; }
+  td { color: var(--ink-2); }
+  td:first-child { color: var(--ink); font-weight: 500; }
+
+  /* tags */
   .tag {
-    display: inline-block;
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-left: 6px;
-    white-space: nowrap;
+    display: inline-block; vertical-align: middle;
+    background: var(--brand-soft); color: var(--brand);
+    font-size: 11.5px; font-weight: 600; padding: 2px 8px;
+    border-radius: 999px; margin-left: 6px; white-space: nowrap;
   }
   .ph {
-    background: #fef9c3;
-    padding: 1px 4px;
-    border-radius: 3px;
-    font-weight: 500;
-    color: #854d0e;
+    background: var(--hl-bg); padding: 1px 5px; border-radius: 4px;
+    font-weight: 500; color: var(--hl-ink); font-size: .94em;
   }
-  .note { background: var(--bg-soft); border-left: 3px solid var(--primary); padding: 14px 16px; margin: 16px 0; font-size: 14px; color: var(--text-sub); }
-  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--text-mute); font-size: 13px; }
-  a { color: var(--primary); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+
+  /* footer */
+  .footer {
+    grid-column: 1 / -1; margin-top: 64px; padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    color: var(--ink-3); font-size: 13px;
+  }
+  .footer a { color: var(--ink-3); border-bottom: 0; }
+  .footer a:hover { color: var(--brand); }
+
+  /* focus */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px;
+  }
+
+  /* ── Responsive ────────────────────────── */
+  @media (max-width: 1023px) {
+    .body-grid { grid-template-columns: 1fr; gap: 0; }
+    .toc { position: static; margin-bottom: 28px; }
+    .toc-trigger { display: flex; }
+    .toc nav { display: none; margin-top: 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 8px 0; background: var(--paper); }
+    .toc.open nav { display: block; }
+    .toc.open .toc-title { display: none; }
+    .toc-title { display: none; }
+  }
+  @media (max-width: 768px) {
+    .shell { padding: 28px 18px 64px; gap: 28px; }
+    .topbar-inner { padding: 12px 18px; }
+    .topbar-meta { display: none; }
+    .glance-grid { grid-template-columns: 1fr 1fr; }
+    .glance-cell { border-right: 0; border-bottom: 1px solid var(--line); padding: 18px 20px; }
+    .glance-cell:nth-child(odd) { border-right: 1px solid var(--line); }
+    .glance-cell:nth-last-child(-n+2) { border-bottom: 0; }
+    .glance-cell .value { font-size: 19px; }
+    .glance-head { padding: 16px 20px; }
+  }
+  @media (max-width: 480px) {
+    .glance-grid { grid-template-columns: 1fr; }
+    .glance-cell { border-right: 0 !important; }
+    .glance-cell:not(:last-child) { border-bottom: 1px solid var(--line); }
+    .sec-head { gap: 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <h1>개인정보처리방침</h1>
-    <div class="meta">Ullo <span class="ph">〔운영주체/법인명 교체〕</span> &nbsp;·&nbsp; 시행일 <span class="ph">〔2026-XX-XX〕</span> &nbsp;·&nbsp; 버전 v1.0</div>
-  </header>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo"><span class="logo-dot">U</span>Ullo</div>
+    <span class="topbar-title">개인정보처리방침</span>
+    <span class="topbar-meta">시행일 <span class="ph">2026-XX-XX</span> · v1.0</span>
+  </div>
+</header>
 
-  <p>Ullo(이하 "회사")는 「개인정보 보호법」 등 관련 법령을 준수하며, 이용자의 개인정보를 안전하게 처리합니다. 본 방침은 회사가 제공하는 Ullo 서비스(이하 "서비스")에 적용됩니다.</p>
+<div class="shell">
 
-  <div class="note">이 문서는 심사 제출용 <b>예시본</b>입니다. <span class="ph">노란색으로 표시된 부분</span>은 실제 정보로 교체해야 합니다.</div>
-
-  <h2>1. 총칙</h2>
-  <p><b>목적</b>: 본 방침은 회사가 이용자로부터 수집하는 개인정보의 항목·목적·보유기간 및 이용자의 권리를 안내함에 있습니다.</p>
-  <p><b>용어</b>: "개인정보"란 살아 있는 개인에 관한 정보로서 해당 개인을 식별할 수 있는 정보를 말합니다. "이용자"란 본 서비스를 이용하는 자를 말합니다.</p>
-
-  <h2>2. 수집하는 개인정보 항목 및 목적</h2>
-  <table>
-    <thead>
-      <tr><th>분류</th><th>수집 항목</th><th>수집 목적</th><th>보유기간</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>회원정보(필수)</td><td>이메일, 이름, 닉네임, 프로필 사진</td><td>회원 가입 및 식별, 서비스 제공</td><td>회원탈퇴 시까지</td></tr>
-      <tr><td>회원정보(선택)</td><td>휴대폰 번호, 주소</td><td>예약 안내(문자/SMS), 본인 확인, 서비스 제공</td><td>회원탈퇴 시까지</td></tr>
-      <tr><td>위치정보</td><td>GPS 위치 정보</td><td>지도 기반 주변 스튜디오 탐색</td><td>이용 중 즉시 파기</td></tr>
-      <tr><td>사진·카메라</td><td>프로필·리뷰·문의 첨부 이미지, QR 출결 캡처</td><td>게시물 작성, QR 출결 처리</td><td>회원탈퇴 시까지</td></tr>
-      <tr><td>예약·결제</td><td>예약 내역, 크레딧 잔액/내역, 결제수단, 쿠폰, 구독(패스) 정보</td><td>예약·결제 서비스 제공, 혜택 제공</td><td>관련 법령에 따름</td></tr>
-      <tr><td>이용기록</td><td>서비스 이용 기록, 접속 로그</td><td>서비스 운영·장애 대응·부정이용 방지</td><td>관련 법령에 따름</td></tr>
-      <tr><td>사용자 생성 콘텐츠</td><td>리뷰(별점·텍스트·사진), 1:1 문의, 저장한 스튜디오</td><td>서비스 제공</td><td>회원탈퇴 시까지</td></tr>
-    </tbody>
-  </table>
-  <p><span class="tag">참고</span> 성별·생년월일은 수집하지 않습니다. 분석·광고 목적의 SDK는 사용하지 않습니다.</p>
-
-  <h2>3. 개인정보 수집 방법</h2>
-  <ul>
-    <li>카카오 소셜 로그인 연동 시 제공되는 정보</li>
-    <li>앱 내 회원정보 입력·수정 시 자발적 제공</li>
-    <li>서비스 이용 과정에서 자동 수집(위치, 이용기록)</li>
-  </ul>
-
-  <h2>4. 개인정보의 제3자 제공 및 처리 위탁</h2>
-  <p>회사는 이용자의 동의 없이는 개인정보를 제3자에게 제공하지 않습니다. 단, 서비스 제공을 위해 다음과 같이 제공·위탁합니다.</p>
-  <table>
-    <thead><tr><th>제공받는 자</th><th>제공 항목</th><th>목적</th></tr></thead>
-    <tbody>
-      <tr><td>카카오</td><td>카카오 인증정보 → 이메일·이름·프로필</td><td>소셜 로그인</td></tr>
-      <tr><td>네이버 (Naver Map)</td><td>위치 정보</td><td>지도·위치 서비스</td></tr>
-      <tr><td>결제대행사 (이니시스)<span class="tag">연동예정</span></td><td>결제수단·거래 정보</td><td>결제 처리</td></tr>
-      <tr><td>클라우드 호스팅 사업자</td><td>서비스 운영에 필요한 데이터</td><td>서버 호스팅</td></tr>
-    </tbody>
-  </table>
-
-  <h2>5. 개인정보의 보유 및 이용기간</h2>
-  <p>원칙적으로 회원탈퇴 시 지체 없이 파기합니다. 단, 관련 법령에 따라 일정 기간 보존합니다.</p>
-  <ul>
-    <li>전자상거래법: 계약·청약철회 기록(5년), 대금결제·재화공급 기록(5년), 소비자 불만·분쟁 처리 기록(3년), 표시·광고 기록(6개월)</li>
-    <li>통신비밀보호법: 접속 로그(3개월)</li>
-  </ul>
-
-  <h2>6. 개인정보의 파기 절차</h2>
-  <p>파기 시기가 도래한 개인정보는 복구·재생 불가능한 방법으로 즉시 파기합니다. 전자적 파일은 기록을 재생할 수 없는 기술적 방법으로 영구 삭제합니다.</p>
-
-  <h2>7. 이용자의 권리 행사</h2>
-  <p>이용자는 언제든지 본인의 개인정보에 대해 열람·정정·삭제·처리정지 및 회원탈퇴를 요청할 수 있습니다.</p>
-  <div class="note">
-    청구 창구: <span class="ph">privacy@ullo.app 〔실제 이메일 교체〕</span><br>
-    회신 기간: 접수 후 10일 이내 (법정 15일 이내)
+  <!-- Hero -->
+  <div class="hero">
+    <span class="eyebrow">Privacy Policy</span>
+    <h1>이용자의 정보를 <span class="accent">안전하게</span>, 최소한으로.</h1>
+    <p class="lead">Ullo는 「개인정보 보호법」을 준수하며, 어떤 정보를 수집하고 왜 쓰는지, 누구와 공유하는지를 투명하게 알려드립니다. 본 방침은 Ullo 서비스에 적용됩니다.</p>
   </div>
 
-  <h2>8. 자동 수집 장치(쿠키·로컬스토리지)</h2>
-  <p>본 서비스는 설치형 모바일 앱으로 웹 쿠키를 사용하지 않습니다. 기기에는 다음 정보가 저장됩니다.</p>
-  <ul>
-    <li>인증 토큰: OS 보안 저장소(키체인/Keystore)에 암호화하여 저장</li>
-    <li>최근 검색어: 기기 내에만 저장(서버 미전송, 최대 10건)</li>
-  </ul>
+  <!-- At a glance -->
+  <aside class="glance" aria-label="핵심 요약">
+    <div class="glance-head"><h2>핵심 요약</h2><span>세부 내용은 아래 각 조항 참고</span></div>
+    <div class="glance-grid">
+      <div class="glance-cell">
+        <div class="label">수집 항목</div>
+        <div class="value">7종</div>
+        <div class="sub">회원정보 · 위치 · 사진 · 예약·결제</div>
+      </div>
+      <div class="glance-cell">
+        <div class="label">제3자 제공</div>
+        <div class="value">4곳</div>
+        <div class="sub">카카오 · 네이버 · 결제대행 · 호스팅</div>
+      </div>
+      <div class="glance-cell">
+        <div class="label">보유 기간</div>
+        <div class="value">탈퇴 시 파기</div>
+        <div class="sub">관련 법령 보존 항목은 제외</div>
+      </div>
+      <div class="glance-cell">
+        <div class="label">권리 청구</div>
+        <div class="value"><span class="ph">privacy@ullo.app</span></div>
+        <div class="sub">열람·정정·삭제·탈퇴</div>
+      </div>
+    </div>
+  </aside>
 
-  <h2>9. 개인정보의 안전성 확보 조치</h2>
-  <ul>
-    <li><b>전송 구간 암호화</b>: 모든 통신은 HTTPS/TLS로 암호화</li>
-    <li><b>저장 암호화</b>: 인증정보는 OS 보안 저장소에 암호화 저장</li>
-    <li><b>접근 통제</b>: 개인정보 처리 담당자를 최소화하고 권한을 제한</li>
-  </ul>
+  <!-- Body -->
+  <div class="body-grid">
 
-  <h2>10. 개인정보보호책임자</h2>
-  <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 처리 과정에서 발생하는 불만 처리를 위해 아래와 같이 책임자를 지정합니다.</p>
-  <div class="note">
-    개인정보보호책임자: <span class="ph">〔이름/직책〕</span><br>
-    이메일: <span class="ph">privacy@ullo.app 〔교체〕</span>
+    <!-- TOC -->
+    <aside class="toc" id="toc">
+      <button class="toc-trigger" aria-expanded="false" aria-controls="toc-nav" onclick="toggleToc()">
+        <span>목차</span>
+        <svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="toc-title">목차</p>
+      <nav id="toc-nav">
+        <ul>
+          <li><a href="#s1"><span class="idx">01</span>총칙</a></li>
+          <li><a href="#s2"><span class="idx">02</span>수집 항목과 목적</a></li>
+          <li><a href="#s3"><span class="idx">03</span>수집 방법</a></li>
+          <li><a href="#s4"><span class="idx">04</span>제3자 제공·위탁</a></li>
+          <li><a href="#s5"><span class="idx">05</span>보유·이용기간</a></li>
+          <li><a href="#s6"><span class="idx">06</span>파기 절차</a></li>
+          <li><a href="#s7"><span class="idx">07</span>이용자 권리</a></li>
+          <li><a href="#s8"><span class="idx">08</span>로컬 저장</a></li>
+          <li><a href="#s9"><span class="idx">09</span>안전성 확보</a></li>
+          <li><a href="#s10"><span class="idx">10</span>책임자</a></li>
+          <li><a href="#s11"><span class="idx">11</span>권익침해 구제</a></li>
+          <li><a href="#s12"><span class="idx">12</span>부칙</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+
+      <section id="s1">
+        <div class="sec-head"><span class="sec-idx">제1조</span><h2>총칙</h2></div>
+        <p><strong>목적.</strong> Ullo(이하 "회사")는 이용자의 개인정보를 중요하게 취급하며, 본 방침은 수집하는 개인정보의 항목·목적·보유기간과 이용자의 권리를 안내합니다.</p>
+        <p><strong>용어.</strong> "개인정보"란 살아 있는 개인에 관한 정보로 해당 개인을 식별할 수 있는 정보를, "이용자"란 본 서비스를 이용하는 자를 말합니다.</p>
+      </section>
+
+      <section id="s2">
+        <div class="sec-head"><span class="sec-idx">제2조</span><h2>수집하는 개인정보 항목과 목적</h2></div>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>분류</th><th>수집 항목</th><th>목적</th><th>보유기간</th></tr></thead>
+          <tbody>
+            <tr><td>회원정보<br><small style="color:var(--ink-3)">필수</small></td><td>이메일, 이름, 닉네임, 프로필 사진</td><td>회원 가입·식별, 서비스 제공</td><td>탈퇴 시까지</td></tr>
+            <tr><td>회원정보<br><small style="color:var(--ink-3)">선택</small></td><td>휴대폰 번호, 주소</td><td>예약 안내(문자/SMS), 본인확인</td><td>탈퇴 시까지</td></tr>
+            <tr><td>위치정보</td><td>GPS 위치</td><td>지도 기반 주변 스튜디오 탐색</td><td>이용 중 즉시 파기</td></tr>
+            <tr><td>사진·카메라</td><td>프로필·리뷰·문의 첨부, QR 출결</td><td>게시물 작성, QR 출결 처리</td><td>탈퇴 시까지</td></tr>
+            <tr><td>예약·결제</td><td>예약 내역, 크레딧, 결제수단, 쿠폰, 구독</td><td>예약·결제 서비스, 혜택 제공</td><td>관련 법령에 따름</td></tr>
+            <tr><td>이용기록</td><td>서비스 이용 기록, 접속 로그</td><td>운영·장애 대응·부정이용 방지</td><td>관련 법령에 따름</td></tr>
+            <tr><td>생성 콘텐츠</td><td>리뷰, 1:1 문의, 저장한 스튜디오</td><td>서비스 제공</td><td>탈퇴 시까지</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="callout"><strong>수집하지 않는 항목</strong> — 성별·생년월일은 수집하지 않으며, 분석·광고 목적의 SDK도 사용하지 않습니다.</p>
+      </section>
+
+      <section id="s3">
+        <div class="sec-head"><span class="sec-idx">제3조</span><h2>개인정보 수집 방법</h2></div>
+        <ul>
+          <li>카카오 소셜 로그인 연동 시 제공되는 정보</li>
+          <li>앱 내 회원정보 입력·수정 시 자발적 제공</li>
+          <li>서비스 이용 과정에서의 자동 수집(위치, 이용기록)</li>
+        </ul>
+      </section>
+
+      <section id="s4">
+        <div class="sec-head"><span class="sec-idx">제4조</span><h2>개인정보의 제3자 제공 및 처리 위탁</h2></div>
+        <p>이용자의 동의 없이는 개인정보를 제3자에게 제공하지 않습니다. 단, 서비스 제공을 위해 다음과 같이 제공·위탁합니다.</p>
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>제공받는 자</th><th>제공 항목</th><th>목적</th></tr></thead>
+          <tbody>
+            <tr><td>카카오</td><td>카카오 인증정보 → 이메일·이름·프로필</td><td>소셜 로그인</td></tr>
+            <tr><td>네이버 (Naver Map)</td><td>위치 정보</td><td>지도·위치 서비스</td></tr>
+            <tr><td>결제대행사 (이니시스)<span class="tag">연동예정</span></td><td>결제수단·거래 정보</td><td>결제 처리</td></tr>
+            <tr><td>클라우드 호스팅</td><td>서비스 운영 데이터</td><td>서버 호스팅</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section id="s5">
+        <div class="sec-head"><span class="sec-idx">제5조</span><h2>개인정보의 보유 및 이용기간</h2></div>
+        <p>원칙적으로 <strong>회원탈퇴 시 지체 없이 파기</strong>합니다. 단, 관련 법령에 따라 일정 기간 보존합니다.</p>
+        <ul>
+          <li><strong>전자상거래법:</strong> 계약·청약철회 기록(5년), 대금결제·재화공급 기록(5년), 소비자 불만 처리 기록(3년), 표시·광고 기록(6개월)</li>
+          <li><strong>통신비밀보호법:</strong> 접속 로그(3개월)</li>
+        </ul>
+      </section>
+
+      <section id="s6">
+        <div class="sec-head"><span class="sec-idx">제6조</span><h2>개인정보의 파기 절차</h2></div>
+        <p>파기 시기가 도래한 개인정보는 복구·재생 불가능한 방법으로 즉시 파기합니다. 전자적 파일은 재생할 수 없는 기술적 방법으로 영구 삭제합니다.</p>
+      </section>
+
+      <section id="s7">
+        <div class="sec-head"><span class="sec-idx">제7조</span><h2>이용자의 권리 행사</h2></div>
+        <p>이용자는 언제든지 본인의 개인정보에 대해 <strong>열람·정정·삭제·처리정지 및 회원탈퇴</strong>를 요청할 수 있습니다.</p>
+        <div class="callout">
+          <strong>청구 창구</strong>
+          <span class="kv">이메일: <span class="ph">privacy@ullo.app</span> <span style="color:var(--ink-3)">〔실제 이메일 교체〕</span></span>
+          <span class="kv">회신 기간: 접수 후 10일 이내 (법정 15일 이내)</span>
+        </div>
+      </section>
+
+      <section id="s8">
+        <div class="sec-head"><span class="sec-idx">제8조</span><h2>자동 수집 장치 (로컬 저장)</h2></div>
+        <p>본 서비스는 설치형 모바일 앱으로 웹 쿠키를 사용하지 않습니다. 기기에는 다음 정보가 저장됩니다.</p>
+        <ul>
+          <li><strong>인증 토큰</strong> — OS 보안 저장소(키체인/Keystore)에 암호화하여 저장</li>
+          <li><strong>최근 검색어</strong> — 기기 내에만 저장(서버 미전송, 최대 10건)</li>
+        </ul>
+      </section>
+
+      <section id="s9">
+        <div class="sec-head"><span class="sec-idx">제9조</span><h2>개인정보의 안전성 확보 조치</h2></div>
+        <ul>
+          <li><strong>전송 구간 암호화</strong> — 모든 통신은 HTTPS/TLS로 암호화</li>
+          <li><strong>저장 암호화</strong> — 인증정보는 OS 보안 저장소에 암호화 저장</li>
+          <li><strong>접근 통제</strong> — 개인정보 처리 담당자를 최소화하고 권한을 제한</li>
+        </ul>
+      </section>
+
+      <section id="s10">
+        <div class="sec-head"><span class="sec-idx">제10조</span><h2>개인정보보호책임자</h2></div>
+        <p>회사는 개인정보 처리 업무를 총괄하는 책임자를 아래와 같이 지정합니다.</p>
+        <div class="callout">
+          <strong>책임자:</strong> <span class="ph">〔이름 / 직책〕</span><br>
+          <strong>이메일:</strong> <span class="ph">privacy@ullo.app</span> <span style="color:var(--ink-3)">〔교체〕</span>
+        </div>
+      </section>
+
+      <section id="s11">
+        <div class="sec-head"><span class="sec-idx">제11조</span><h2>권익침해 구제 방법</h2></div>
+        <p>개인정보 침해 피해 구제·상담이 필요한 경우 아래 기관에 문의할 수 있습니다.</p>
+        <ul>
+          <li>개인정보 침해신고센터 (국번없이) 118 · <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener">privacy.kisa.or.kr</a></li>
+          <li>개인정보 분쟁조정위원회 1833-6972 · <a href="https://www.kopico.go.kr" target="_blank" rel="noopener">www.kopico.go.kr</a></li>
+          <li>경찰청 사이버수사대 (국번없이) 182 · <a href="https://ecrm.cyber.go.kr" target="_blank" rel="noopener">ecrm.cyber.go.kr</a></li>
+        </ul>
+      </section>
+
+      <section id="s12">
+        <div class="sec-head"><span class="sec-idx">제12조</span><h2>부칙</h2></div>
+        <p>본 방침은 <span class="ph">2026-XX-XX</span>부터 시행합니다. 내용 변경 시 시행일 7일 전부터 앱 내에 공지합니다.</p>
+      </section>
+
+    </main>
   </div>
 
-  <h2>11. 권익침해 구제 방법</h2>
-  <p>이용자는 개인정보 침해에 대한 피해 구제, 상담 등이 필요한 경우 아래 기관에 문의할 수 있습니다.</p>
-  <ul>
-    <li>개인정보 침해신고센터 (국번없이) 118 · <a href="https://privacy.kisa.or.kr" target="_blank">privacy.kisa.or.kr</a></li>
-    <li>개인정보 분쟁조정위원회 1833-6972 · <a href="https://www.kopico.go.kr" target="_blank">www.kopico.go.kr</a></li>
-    <li>경찰청 사이버수사대 (국번없이) 182 · <a href="https://ecrm.cyber.go.kr" target="_blank">ecrm.cyber.go.kr</a></li>
-  </ul>
-
-  <h2>12. 부칙</h2>
-  <p>본 방침은 <span class="ph">〔2026-XX-XX〕</span>부터 시행합니다. 내용 변경 시 시행일 7일 전부터 앱 내에 공지합니다.</p>
-
-  <footer>
-    © Ullo. 본 문서는 예시본이며 실제 서비스에 맞게 수정 필요.
+  <footer class="footer">
+    <span>© Ullo · 개인정보처리방침 v1.0</span>
+    <span>본 문서는 심사 제출용 예시본 — 노란 표시 부분은 실제 정보로 교체 필요</span>
   </footer>
 
 </div>
+
+<script>
+  // Mobile TOC toggle
+  function toggleToc() {
+    var toc = document.getElementById('toc');
+    var btn = toc.querySelector('.toc-trigger');
+    var open = toc.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  // Close mobile TOC on link click
+  document.querySelectorAll('#toc-nav a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (window.innerWidth <= 1023) {
+        var toc = document.getElementById('toc');
+        toc.classList.remove('open');
+        toc.querySelector('.toc-trigger').setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  // Scroll-spy
+  (function() {
+    var links = Array.from(document.querySelectorAll('#toc-nav a'));
+    var sections = links.map(function(l) { return document.querySelector(l.getAttribute('href')); });
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var id = '#' + e.target.id;
+          links.forEach(function(l) {
+            l.classList.toggle('active', l.getAttribute('href') === id);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function(s) { if (s) io.observe(s); });
+  })();
+</script>
+
 </body>
 </html>
